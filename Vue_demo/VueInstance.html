@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <title>Document</title>
+</head>
+<body>
+    <!-- vue实例 -->
+    <div id="app">
+		{{message}}
+	</div>
+	<div id="app1">
+		{{a}}
+	</div>
+	<script type="text/javascript">
+		var app =new Vue({
+			el: '#app',
+            data: {
+               message: "Hello Vue!"
+        }
+      })
+		// 我们的数据对象
+        var data = { a: 1 } 
+		// 该对象被加入到一个 Vue 实例中
+        var vm = new Vue({
+            el:"#app1",
+            data: data
+        })
+        data.a=" hi ... new ...";
+
+
+        //记录变化
+        vm.$watch('a',function(newVal,oldVal){
+            console.log(newVal,oldVal);
+        })
+
+        vm.$data.a="test...";
+
+        //比如 created 钩子可以用来在一个实例被创建之后执行代码
+            new Vue({
+                data: {
+                    a: 1
+                },
+                created: function () {
+                    // `this` 指向 vm 实例
+                    console.log('a is: ' + this.a)
+                }
+            })
+                // => "a is: 1"
+	</script>
+</body>
+</html>
