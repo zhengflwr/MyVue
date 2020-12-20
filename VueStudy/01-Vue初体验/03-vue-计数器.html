@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <p>计数器当前数字：{{counter}}</p>
+        <button v-on:click="add">+</button>
+        <button @click="sub">-</button>
+    </div>
+</body>
+
+</html>
+<script>
+    const obj =
+    {
+        counter: 0
+    }
+    const app = new Vue({
+        el: '#app',
+        data: obj,
+        methods: {
+            add: function () {
+                console.log("add被执行");
+                this.counter++;
+            },
+            sub: function () {
+                console.log("sub被执行");
+                this.counter--;
+            }
+        },
+        beforeCreate: function () {
+            console.log("beForCreate");
+        },
+        created: function () {
+            console.log("created");
+        },
+        mounted: function () {
+            console.log("mounted");
+        }
+    })
+</script>

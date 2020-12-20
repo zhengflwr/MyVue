@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 开发环境版本，包含了有帮助的命令行警告 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="todo in todos">
+                {{ todo }}
+            </li>
+            <li v-for="item in movices">{{item}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script>
+    var app4 = new Vue({
+        el: '#app',
+        data: {
+            todos: ['学习 JavaScript', '学习 Vue', '整个牛项目'],
+            movices: ["大话西游"]
+        }
+    })
+</script>
